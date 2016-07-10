@@ -21,6 +21,9 @@ struct videos {
     private var _vLinkToiTunes: String
     private var _vReleaseDate: String
     
+    // Tjis variable get created from the UI
+    var vImageData: NSData?
+    
     
     var vName: String {
         return _vName
