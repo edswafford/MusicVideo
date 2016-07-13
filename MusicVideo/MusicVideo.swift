@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct videos {
+struct Videos {
     
     private var _vName: String
     private var _vRights: String
