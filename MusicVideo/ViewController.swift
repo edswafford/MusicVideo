@@ -15,23 +15,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videos.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        let video = videos[indexPath.row]
-        cell.textLabel?.text = "\(indexPath.row + 1)"
-        cell.detailTextLabel?.text = video.vName
-        return cell
-    }
- 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,5 +75,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return
         }
     }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return videos.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let video = videos[indexPath.row]
+        cell.textLabel?.text = "\(indexPath.row + 1)"
+        cell.detailTextLabel?.text = video.vName
+        return cell
+    }
+
 }
 
