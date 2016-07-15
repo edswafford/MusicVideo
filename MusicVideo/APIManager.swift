@@ -38,8 +38,9 @@ struct APIManager {
                         entries = feed["entry"] as? JSONArray {
                         
                         var videos = [Videos]()
-                        for entry in entries {
-                            let entry = Videos(data: entry as! JSONDictionary)
+                        for (index, entry) in entries.enumerate() {
+                            var entry = Videos(data: entry as! JSONDictionary)
+                            entry.vRank = index + 1
                             videos.append(entry)
                         }
                         
