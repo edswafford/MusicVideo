@@ -12,6 +12,7 @@ class MusicVideoDetailVC: UIViewController {
 
     var videos: Videos!
     
+    var sec: Bool = false
     
     @IBOutlet weak var vName: UILabel!
 
@@ -27,6 +28,8 @@ class MusicVideoDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sec = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
         
         title = videos.vArtist
         vName.text = videos.vName
