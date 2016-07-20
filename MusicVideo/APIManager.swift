@@ -39,7 +39,7 @@ struct APIManager {
                         
                         var videos = [Videos]()
                         for (index, entry) in entries.enumerate() {
-                            var entry = Videos(data: entry as! JSONDictionary)
+                            let entry = Videos(data: entry as! JSONDictionary)
                             entry.vRank = index + 1
                             videos.append(entry)
                         }

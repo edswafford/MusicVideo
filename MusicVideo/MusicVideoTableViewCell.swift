@@ -54,7 +54,6 @@ class MusicVideoTableViewCell: UITableViewCell {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let data = NSData(contentsOfURL: NSURL(string: video.vImageUrl)!)
             
-            var video = video
             var image: UIImage?
             if data != nil {
                 video.vImageData = data

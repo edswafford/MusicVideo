@@ -114,8 +114,12 @@ class MusicVideoTVC: UITableViewController {
         return videos.count
     }
     
+    //
+    // StoryBoard
+    //
     private struct storyboard {
         static let cellResueIdentifier = "cell"
+        static let seguelIdentifier = "musicDetail"
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -166,14 +170,17 @@ class MusicVideoTVC: UITableViewController {
      }
      */
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
+        
+        if segue.identifier == storyboard.seguelIdentifier {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let video = videos[indexPath.row]
+                let dvc = segue.destinationViewController as! MusicVideoDetailVC
+                dvc.videos = video
+            }
+        }
      }
-     */
     
 }

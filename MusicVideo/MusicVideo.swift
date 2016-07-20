@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Videos {
+class Videos {
     
     var vRank = 0
     private var _vName: String
@@ -23,8 +23,7 @@ struct Videos {
     private var _vReleaseDate: String
     
     // This variable get created from the UI
-    var vImageData: NSData?
-    
+     var vImageData: NSData?
     
     var vName: String {
         return _vName
