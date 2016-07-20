@@ -101,6 +101,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAK-o6-wJq">
+                                <rect key="frame" x="7" y="64" width="586" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="rki-ua-3FZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cek-XG-79p">
                                 <rect key="frame" x="504" y="416" width="76" height="34"/>
                                 <constraints>
@@ -111,21 +120,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqc-8f-aKp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rights" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqc-8f-aKp">
                                 <rect key="frame" x="1" y="458" width="599" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="WGi-EV-mMp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAK-o6-wJq">
-                                <rect key="frame" x="7" y="64" width="586" height="69"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="69" id="rki-ua-3FZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -144,10 +144,51 @@
                             <constraint firstItem="Bqc-8f-aKp" firstAttribute="bottom" secondItem="tjs-v3-yYx" secondAttribute="top" id="Jai-76-B3Y"/>
                             <constraint firstItem="Cek-XG-79p" firstAttribute="trailing" secondItem="ZBN-UH-3Lz" secondAttribute="trailingMargin" id="NZq-Tm-J4v"/>
                             <constraint firstItem="Bqc-8f-aKp" firstAttribute="top" secondItem="67C-Rn-yWv" secondAttribute="bottom" constant="8" symbolic="YES" id="URK-l7-le2"/>
+                            <constraint firstItem="DlZ-Z7-lHU" firstAttribute="top" secondItem="ikw-2j-0eZ" secondAttribute="bottom" id="WmO-5c-9lT"/>
                             <constraint firstItem="DlZ-Z7-lHU" firstAttribute="leading" secondItem="Bqc-8f-aKp" secondAttribute="leading" id="hRj-Xe-SbY"/>
                             <constraint firstItem="NAK-o6-wJq" firstAttribute="centerX" secondItem="ZBN-UH-3Lz" secondAttribute="centerX" id="kA5-hU-RtO"/>
+                            <constraint firstItem="tjs-v3-yYx" firstAttribute="top" secondItem="DlZ-Z7-lHU" secondAttribute="bottom" constant="8" symbolic="YES" id="v08-Rh-lf3"/>
+                            <constraint firstAttribute="trailing" secondItem="DlZ-Z7-lHU" secondAttribute="trailing" id="v19-we-fZG"/>
+                            <constraint firstItem="DlZ-Z7-lHU" firstAttribute="centerX" secondItem="ZBN-UH-3Lz" secondAttribute="centerX" id="woB-qQ-5ml"/>
                             <constraint firstItem="DlZ-Z7-lHU" firstAttribute="trailing" secondItem="Bqc-8f-aKp" secondAttribute="trailing" id="yPj-b8-BGO"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WmO-5c-9lT"/>
+                                <exclude reference="v19-we-fZG"/>
+                                <exclude reference="woB-qQ-5ml"/>
+                                <exclude reference="v08-Rh-lf3"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="67C-Rn-yWv"/>
+                                <exclude reference="NAK-o6-wJq"/>
+                                <exclude reference="Cek-XG-79p"/>
+                                <exclude reference="Bqc-8f-aKp"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="9Nv-9q-W1l"/>
+                                <exclude reference="A8y-aU-TIG"/>
+                                <exclude reference="Gxk-bJ-Vqe"/>
+                                <exclude reference="kA5-hU-RtO"/>
+                                <exclude reference="2gi-Yv-Bcb"/>
+                                <exclude reference="4ZF-dq-zI5"/>
+                                <exclude reference="AoD-eP-mQG"/>
+                                <exclude reference="Cvs-ft-yhw"/>
+                                <exclude reference="Jai-76-B3Y"/>
+                                <exclude reference="URK-l7-le2"/>
+                                <exclude reference="NZq-Tm-J4v"/>
+                                <exclude reference="9K5-EW-9dl"/>
+                                <exclude reference="EIS-iZ-QZ5"/>
+                                <include reference="WmO-5c-9lT"/>
+                                <exclude reference="hRj-Xe-SbY"/>
+                                <include reference="v19-we-fZG"/>
+                                <include reference="woB-qQ-5ml"/>
+                                <exclude reference="yPj-b8-BGO"/>
+                                <include reference="v08-Rh-lf3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="play" id="6Jk-uz-Awf">
@@ -168,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CI9-gy-7tm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1729" y="556"/>
+            <point key="canvasLocation" x="1729" y="555"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LPi-DZ-xBH">
