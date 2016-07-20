@@ -27,15 +27,27 @@ class SettingsTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "settings"
+        title = "Settings"
         
         tableView.alwaysBounceVertical = false
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsTVC.preferredFontChange) , name: UIContentSizeCategoryDidChangeNotification, object: nil)
 
         touchId.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
+        
+        if(NSUserDefaults.standardUserDefaults().objectForKey("APICNT") != nil) {
+            let theValue = NSUserDefaults.standardUserDefaults().objectForKey("APICNT") as! Int
+            APICnt.text = "\(theValue)"
+            sliderCnt.value = Float(theValue)
+        }
     }
 
+    
+    @IBAction func valueChanged(sender: UISlider) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(Int(sliderCnt.value), forKey: "APICNT")
+        APICnt.text = "\(Int(sliderCnt.value))"
+    }
     
     @IBAction func touchIdSecurity(sender: UISwitch) {
         let defaults = NSUserDefaults.standardUserDefaults()
