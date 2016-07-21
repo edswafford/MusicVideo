@@ -65,6 +65,35 @@ class MusicVideoDetailVC: UIViewController {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)    }
 
 
+    @IBAction func socialMedia(sender: UIBarButtonItem) {
+    
+        shareMedia()
+    }
+    
+    func shareMedia() {
+    
+        let activity1 = "Have you had the opportunity to see this Music Video?"
+        let activity2 = ("\(videos.vName) by \(videos.vArtist)")
+        let activity3 = "Watch it and tell me what you think?"
+        let activity4 = videos.vLinkToiTunes
+        let activity5 = "(Share with the Music Video App - Step It UP!)"
+        
+        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [activity1, activity2, activity3, activity4, activity5], applicationActivities: nil)
+        
+        
+        
+        activityViewController.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            
+            if activity == UIActivityTypeMail {
+                print("email selected")
+            }
+        }
+        
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func playVideo(sender: UIBarButtonItem) {
         
         let url = NSURL(string: videos.vVideoUrl)!
