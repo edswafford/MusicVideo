@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		640E70471D390D60005A0BB1 /* MusicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640E70461D390D60005A0BB1 /* MusicVideoTableViewCell.swift */; };
+		640EFB791D41298F007A8D79 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640EFB781D41298F007A8D79 /* AboutVC.swift */; };
 		643FC6DA1D3FAF5B00847331 /* MusicVideoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FC6D91D3FAF5B00847331 /* MusicVideoDetailVC.swift */; };
 		643FC6DE1D4038B000847331 /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FC6DD1D4038B000847331 /* SettingsTVC.swift */; };
 		644BE8911D308BAA00A42C1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644BE8901D308BAA00A42C1D /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		640E70461D390D60005A0BB1 /* MusicVideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTableViewCell.swift; sourceTree = "<group>"; };
+		640EFB781D41298F007A8D79 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		643FC6D91D3FAF5B00847331 /* MusicVideoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoDetailVC.swift; sourceTree = "<group>"; };
 		643FC6DD1D4038B000847331 /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		644BE88D1D308BAA00A42C1D /* MusicVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 				640E70461D390D60005A0BB1 /* MusicVideoTableViewCell.swift */,
 				643FC6D91D3FAF5B00847331 /* MusicVideoDetailVC.swift */,
 				643FC6DD1D4038B000847331 /* SettingsTVC.swift */,
+				640EFB781D41298F007A8D79 /* AboutVC.swift */,
 			);
 			name = Controler;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				64E68D671D36ECF60066603C /* Reachability.m in Sources */,
 				645D48441D326EB6006AE1F0 /* Constants.swift in Sources */,
 				643FC6DE1D4038B000847331 /* SettingsTVC.swift in Sources */,
+				640EFB791D41298F007A8D79 /* AboutVC.swift in Sources */,
 				64A1E9BC1D38672D00660193 /* MusicVideoTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -119,6 +119,9 @@
                                                 <constraint firstItem="aag-GC-6aK" firstAttribute="top" secondItem="AMc-ui-yFf" secondAttribute="topMargin" constant="23" id="st0-hI-WuK"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="9Na-Lm-Dzg" kind="show" id="LEc-Mg-GYk"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vH8-y2-sgT">
                                         <rect key="frame" x="0.0" y="148" width="600" height="84"/>
@@ -269,6 +272,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQL-jG-Q69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1044" y="1096"/>
+        </scene>
+        <!--AboutVC-->
+        <scene sceneID="Z93-Ke-Rcb">
+            <objects>
+                <viewController id="9Na-Lm-Dzg" customClass="AboutVC" customModule="MusicVideo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YLs-0t-ZkY"/>
+                        <viewControllerLayoutGuide type="bottom" id="dOH-nO-vUO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1mG-xT-XD8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMY-CZ-ZAc">
+                                <rect key="frame" x="20" y="185" width="560" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="puK-3a-VxU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Note 2" translatesAutoresizingMaskIntoConstraints="NO" id="M0c-na-YJr">
+                                <rect key="frame" x="163" y="258" width="275" height="282"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="Ca3-2s-CBV"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iTunes Music Video Player" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAE-u8-aO3">
+                                <rect key="frame" x="20" y="72" width="560" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="Yyj-du-SQu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dOH-nO-vUO" firstAttribute="top" secondItem="M0c-na-YJr" secondAttribute="bottom" constant="16" id="8zt-PZ-ved"/>
+                            <constraint firstItem="PAE-u8-aO3" firstAttribute="trailing" secondItem="1mG-xT-XD8" secondAttribute="trailingMargin" id="Wnn-ca-1h7"/>
+                            <constraint firstItem="PAE-u8-aO3" firstAttribute="top" secondItem="YLs-0t-ZkY" secondAttribute="bottom" constant="8" symbolic="YES" id="azr-oP-c1U"/>
+                            <constraint firstItem="PAE-u8-aO3" firstAttribute="leading" secondItem="1mG-xT-XD8" secondAttribute="leadingMargin" id="bkj-6u-4pz"/>
+                            <constraint firstItem="MMY-CZ-ZAc" firstAttribute="top" secondItem="PAE-u8-aO3" secondAttribute="bottom" constant="8" symbolic="YES" id="dM0-bR-6KS"/>
+                            <constraint firstItem="M0c-na-YJr" firstAttribute="top" secondItem="MMY-CZ-ZAc" secondAttribute="bottom" constant="36" id="mb4-eD-sUL"/>
+                            <constraint firstItem="PAE-u8-aO3" firstAttribute="leading" secondItem="MMY-CZ-ZAc" secondAttribute="leading" id="rmo-UV-dMk"/>
+                            <constraint firstItem="PAE-u8-aO3" firstAttribute="trailing" secondItem="MMY-CZ-ZAc" secondAttribute="trailing" id="x7o-AF-Rz6"/>
+                            <constraint firstItem="MMY-CZ-ZAc" firstAttribute="centerX" secondItem="M0c-na-YJr" secondAttribute="centerX" id="zyU-sC-tBa"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQG-Fx-dla" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1706" y="1096"/>
         </scene>
         <!--Music Video DetailVC-->
         <scene sceneID="sOn-wc-WSB">
@@ -430,4 +488,7 @@
             <point key="canvasLocation" x="309" y="347"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Note 2" width="686" height="535"/>
+    </resources>
 </document>
