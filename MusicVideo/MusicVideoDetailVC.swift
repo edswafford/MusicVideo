@@ -73,10 +73,8 @@ class MusicVideoDetailVC: UIViewController {
         playerViewControler.player = player
         
         self.presentViewController(playerViewControler, animated: true) {
-            if let xxx = playerViewControler.player {
-                xxx.play()
                 playerViewControler.player?.play()
-            }
+
         }
     }
     
