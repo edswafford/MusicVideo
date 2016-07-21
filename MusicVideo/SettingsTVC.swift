@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
-class SettingsTVC: UITableViewController {
-
+import MessageUI
+class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
+    
     @IBOutlet weak var aboutDisplay: UILabel!
     
     @IBOutlet weak var feedbackDisplay: UILabel!
@@ -30,13 +30,13 @@ class SettingsTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         title = "Settings"
         
         tableView.alwaysBounceVertical = false
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsTVC.preferredFontChange) , name: UIContentSizeCategoryDidChangeNotification, object: nil)
-
+        
         touchId.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
         
         if(NSUserDefaults.standardUserDefaults().objectForKey("APICNT") != nil) {
@@ -49,7 +49,7 @@ class SettingsTVC: UITableViewController {
             APICnt.text = ("\(Int(sliderCnt.value))")
         }
     }
-
+    
     
     @IBAction func valueChanged(sender: UISlider) {
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -64,7 +64,7 @@ class SettingsTVC: UITableViewController {
         }
         else {
             defaults.setBool(false, forKey: "SecSetting")
-        }        
+        }
     }
     
     
@@ -78,9 +78,70 @@ class SettingsTVC: UITableViewController {
         dragSliderDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
     }
     
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 0 && indexPath.row == 1 {
+            let mailComposeViewController = configureMail()
+            
+            if MFMailComposeViewController.canSendMail() {
+                self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+            }
+            else {
+                // No email account setup
+                mailAlert()
+            }
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+    }
+    
+    func configureMail() -> MFMailComposeViewController {
+        
+        let mailComposeVC = MFMailComposeViewController()
+        mailComposeVC.mailComposeDelegate = self
+        mailComposeVC.setBccRecipients([""])
+        mailComposeVC.setCcRecipients([""])
+        mailComposeVC.setToRecipients(["edswafford@mchsi.com"])
+        mailComposeVC.setSubject("Music Video Feedback")
+        mailComposeVC.setMessageBody("Hi Ed,\n\nI would like to share the following feedback...\n", isHTML: false)
+        
+        return mailComposeVC
+    }
+    
+    
+    func mailAlert() {
+        let alertController: UIAlertController = UIAlertController(title: "Alert", message: "No e-mail account has been setup for Phone", preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .Default) { action  in
+            // do something
+        }
+        alertController.addAction(okAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        switch result.rawValue {
+        case MFMailComposeResultCancelled.rawValue:
+            print("mail canceled")
+            
+        case MFMailComposeResultSaved.rawValue:
+            print("Mail saved")
+            
+        case MFMailComposeResultSent.rawValue:
+            print("Mail sent")
+            
+        case MFMailComposeResultFailed.rawValue:
+            print("Mail failed")
+
+        default:
+            print("Unknown Issue")
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
     }
     
-
+    
 }
