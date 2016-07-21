@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
+
 
 class MusicVideoDetailVC: UIViewController {
 
@@ -60,4 +63,22 @@ class MusicVideoDetailVC: UIViewController {
 
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)    }
+
+
+    @IBAction func playVideo(sender: UIBarButtonItem) {
+        
+        let url = NSURL(string: videos.vVideoUrl)!
+        let player = AVPlayer(URL: url)
+        let playerViewControler = AVPlayerViewController()
+        playerViewControler.player = player
+        
+        self.presentViewController(playerViewControler, animated: true) {
+            if let xxx = playerViewControler.player {
+                xxx.play()
+                playerViewControler.player?.play()
+            }
+        }
+    }
+    
+
 }

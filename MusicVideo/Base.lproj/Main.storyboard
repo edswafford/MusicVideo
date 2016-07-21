@@ -109,7 +109,7 @@
                                                         <constraint firstAttribute="width" constant="121" id="fmr-5x-bVd"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -133,7 +133,7 @@
                                                         <constraint firstAttribute="width" constant="105" id="B0B-BK-RV6"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -157,7 +157,7 @@
                                                         <constraint firstAttribute="width" constant="101" id="tYQ-0p-aoV"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zpf-ge-0Dl">
@@ -189,7 +189,7 @@
                                                         <constraint firstAttribute="width" constant="255" id="8yZ-I8-Xp1"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cTB-ha-kZ7">
@@ -215,7 +215,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmG-0x-lJr">
                                                     <rect key="frame" x="8" y="8" width="584" height="75"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -365,13 +365,6 @@
                                 <exclude reference="A8y-aU-TIG"/>
                                 <exclude reference="Gxk-bJ-Vqe"/>
                                 <exclude reference="kA5-hU-RtO"/>
-                                <exclude reference="2gi-Yv-Bcb"/>
-                                <exclude reference="4ZF-dq-zI5"/>
-                                <exclude reference="AoD-eP-mQG"/>
-                                <exclude reference="Cvs-ft-yhw"/>
-                                <exclude reference="Jai-76-B3Y"/>
-                                <exclude reference="URK-l7-le2"/>
-                                <exclude reference="NZq-Tm-J4v"/>
                                 <exclude reference="9K5-EW-9dl"/>
                                 <exclude reference="EIS-iZ-QZ5"/>
                                 <include reference="WmO-5c-9lT"/>
@@ -379,13 +372,23 @@
                                 <include reference="v19-we-fZG"/>
                                 <include reference="woB-qQ-5ml"/>
                                 <exclude reference="yPj-b8-BGO"/>
+                                <exclude reference="2gi-Yv-Bcb"/>
+                                <exclude reference="4ZF-dq-zI5"/>
+                                <exclude reference="AoD-eP-mQG"/>
+                                <exclude reference="Cvs-ft-yhw"/>
+                                <exclude reference="Jai-76-B3Y"/>
+                                <exclude reference="URK-l7-le2"/>
                                 <include reference="v08-Rh-lf3"/>
+                                <exclude reference="NZq-Tm-J4v"/>
                             </mask>
                         </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="play" id="6Jk-uz-Awf">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="playVideo:" destination="3H7-0T-4fF" id="sh0-1g-1ga"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="pv8-3f-05M"/>
                         <barButtonItem systemItem="action" id="UJo-PH-ZBi">
