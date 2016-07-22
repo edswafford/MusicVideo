@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import LocalAuthentication
 
 protocol SettingViewControllerDelegate {
     func updateImageQuality()
@@ -59,6 +60,19 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         else {
             sliderCnt.value = 10.0
             APICnt.text = ("\(Int(sliderCnt.value))")
+        }
+        
+        
+        // create the Local Authentication Context
+        let context = LAContext()
+        var touchIDError: NSError?
+        
+        // Check if we can access local device authentication
+        if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &touchIDError) {
+            touchId.enabled = true
+        }
+        else {
+            touchId.enabled = false
         }
     }
     
