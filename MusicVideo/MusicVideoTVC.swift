@@ -8,10 +8,10 @@
 
 import UIKit
 
-class MusicVideoTVC: UITableViewController {
+class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     
     var videos = [Videos]()
-    var filterSearch = [Videos]()
+    var filteredSearch = [Videos]()
     
     let resultSearchController = UISearchController(searchResultsController: nil)
     
@@ -47,7 +47,7 @@ class MusicVideoTVC: UITableViewController {
         
         // Setup Search Controller
         
-        //resultSearchController.searchResultsUpdater = self
+        resultSearchController.searchResultsUpdater = self
         
         definesPresentationContext = true
         resultSearchController.dimsBackgroundDuringPresentation = false
@@ -63,8 +63,16 @@ class MusicVideoTVC: UITableViewController {
     
     @IBAction func refresh(sender: UIRefreshControl) {
         refreshControl?.endRefreshing()
-        runAPI()
+        
+        if resultSearchController.active {
+            refreshControl?.attributedTitle = NSAttributedString(string: "No refresh allowed in search")
+        }
+        else {
+            runAPI()
+        }
     }
+    
+    
     
     func getAPICount() {
         if NSUserDefaults.standardUserDefaults().objectForKey("APICNT") != nil {
@@ -152,7 +160,7 @@ class MusicVideoTVC: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if resultSearchController.active {
-            return filterSearch.count
+            return filteredSearch.count
         }
         return videos.count
     }
@@ -174,7 +182,7 @@ class MusicVideoTVC: UITableViewController {
         //
         
         if resultSearchController.active {
-            cell.video = filterSearch[indexPath.row]
+            cell.video = filteredSearch[indexPath.row]
         }
         else {
             cell.video = videos[indexPath.row]
@@ -230,7 +238,7 @@ class MusicVideoTVC: UITableViewController {
                 let video: Videos
                 
                 if resultSearchController.active {
-                    video = filterSearch[indexPath.row]
+                    video = filteredSearch[indexPath.row]
                 }
                 else {
                     video = videos[indexPath.row]
@@ -242,4 +250,18 @@ class MusicVideoTVC: UITableViewController {
         }
      }
     
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        searchController.searchBar.text!.lowercaseString
+        filterSearch(searchController.searchBar.text!)
+    }
+    
+    func filterSearch(searchText: String) {
+        filteredSearch = videos.filter {
+            Videos in
+            return Videos.vArtist.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        
+        tableView.reloadData()
+    }
 }
