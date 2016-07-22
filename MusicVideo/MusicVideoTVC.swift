@@ -12,7 +12,7 @@ import UIKit
 //class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
 
 // using extensions
-class MusicVideoTVC: UITableViewController {
+class MusicVideoTVC: UITableViewController, SettingViewControllerDelegate {
 
     
     var videos = [Videos]()
@@ -25,7 +25,7 @@ class MusicVideoTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reachabilityStatusChanged), name: "ReachStatusChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.reachabilityStatusChanged), name: "ReachStatusChanged", object: nil)
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.preferredFontChange), name: UIContentSizeCategoryDidChangeNotification, object: nil)
 
@@ -107,11 +107,34 @@ class MusicVideoTVC: UITableViewController {
     }
     
     
+    func updateImageQuality() {
+
+        let imageQualitySwitch = NSUserDefaults.standardUserDefaults().boolForKey("ImageQuality")
+        
+        var imageQuality: ImageQuality = ImageQuality.Poor
+        if imageQualitySwitch {
+            switch reachabilityStatus{
+            case NOACCESS:
+                imageQuality = ImageQuality.Poor
+            case WWAN:
+                imageQuality = ImageQuality.Fair
+            default:
+                imageQuality = ImageQuality.Best
+            }
+        }
+        Videos.vImageQuality = imageQuality
+        runAPI()
+    }
+    
     
     func reachabilityStatusChanged() {
         
+        updateImageQuality()
+        
         switch reachabilityStatus {
         case NOACCESS:
+            
+         
           //  view.backgroundColor = UIColor.redColor()
             
             // It is possible the view has not loaded when we try to dislay the alert which will give this warning
@@ -142,10 +165,9 @@ class MusicVideoTVC: UITableViewController {
             })
             
             //case WWAN:
-            //    view.backgroundColor = UIColor.yellowColor()
+
             
         default:
-           // view.backgroundColor = UIColor.greenColor()
             if videos.count > 0 {
                 print("Do not refresh API")
             }
@@ -175,7 +197,8 @@ class MusicVideoTVC: UITableViewController {
     //
     private struct storyboard {
         static let cellResueIdentifier = "cell"
-        static let seguelIdentifier = "musicDetail"
+        static let seguelMusicDetailIdentifier = "musicDetail"
+        static let seguelSettingsIdentifier = "settings"
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -237,7 +260,7 @@ class MusicVideoTVC: UITableViewController {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
         
-        if segue.identifier == storyboard.seguelIdentifier {
+        if segue.identifier == storyboard.seguelMusicDetailIdentifier {
             if let indexPath = tableView.indexPathForSelectedRow {
                 
                 let video: Videos
@@ -252,6 +275,10 @@ class MusicVideoTVC: UITableViewController {
                 let dvc = segue.destinationViewController as! MusicVideoDetailVC
                 dvc.videos = video
             }
+        }
+        else if segue.identifier == storyboard.seguelSettingsIdentifier {
+            let svc = segue.destinationViewController as! SettingsTVC
+            svc.delegate = self
         }
      }
     

@@ -8,7 +8,23 @@
 
 import Foundation
 
+enum ImageQuality: Int {
+    case Best = 600
+    case Fair = 300
+    case Poor = 100
+}
+
 class Videos {
+
+    static private var _vImageQuality: ImageQuality = .Best
+    class var vImageQuality: ImageQuality {
+        get {
+            return _vImageQuality
+        }
+        set(quality){
+            _vImageQuality = quality
+        }
+    }
     
     var vRank = 0
     private var _vName: String
@@ -21,6 +37,7 @@ class Videos {
     private var _vGenre: String
     private var _vLinkToiTunes: String
     private var _vReleaseDate: String
+    
     
     // This variable get created from the UI
      var vImageData: NSData?
@@ -37,7 +54,12 @@ class Videos {
     }
 
     var vImageUrl: String {
-        return _vImageUrl
+        get {
+            return _vImageUrl
+        }
+        set(imageUrl) {
+            _vImageUrl = imageUrl
+        }
     }
     
     var vArtist: String {
@@ -98,7 +120,7 @@ class Videos {
         if let imageArray = data["im:image"] as? JSONArray,
             imageDict = imageArray[2] as? JSONDictionary,
             image = imageDict["label"] as? String {
-            _vImageUrl = image.stringByReplacingOccurrencesOfString("100x100", withString: "600x600")
+            _vImageUrl = image.stringByReplacingOccurrencesOfString("100x100", withString: "\(Videos.vImageQuality.rawValue)x\(Videos.vImageQuality.rawValue)")
         }
         else {
             _vImageUrl = ""

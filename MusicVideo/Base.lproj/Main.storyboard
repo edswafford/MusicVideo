@@ -77,7 +77,7 @@
                         <barButtonItem title="Settings" id="Vrj-2N-HL2">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="wpa-d9-JHB" kind="show" id="9AT-QZ-4HZ"/>
+                                <segue destination="wpa-d9-JHB" kind="show" identifier="settings" id="9AT-QZ-4HZ"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -205,6 +205,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cTB-ha-kZ7">
                                                     <rect key="frame" x="535" y="31" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="imageQuality:" destination="wpa-d9-JHB" eventType="valueChanged" id="bHv-f2-v3z"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -296,6 +299,7 @@
                         <outlet property="APICnt" destination="GmG-0x-lJr" id="7oR-2v-AhL"/>
                         <outlet property="aboutDisplay" destination="aag-GC-6aK" id="DOi-7P-dAL"/>
                         <outlet property="bestImageDisplay" destination="X6z-GO-VMI" id="Pfa-VD-gt1"/>
+                        <outlet property="bestImageQuality" destination="cTB-ha-kZ7" id="WoI-w3-fbg"/>
                         <outlet property="dragSliderDisplay" destination="X3j-0I-YM9" id="SOr-3c-gTU"/>
                         <outlet property="feedbackDisplay" destination="wC6-IZ-SM0" id="iwZ-Do-R6j"/>
                         <outlet property="numberOfVideoDisplay" destination="7lc-ou-K7A" id="CIr-Hm-Syk"/>

@@ -67,7 +67,7 @@ class MusicVideoDetailVC: UIViewController {
     @IBAction func socialMedia(sender: UIBarButtonItem) {
     
         securitySwitch = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
-        
+
         switch securitySwitch {
         case true:
             touchIdCheck()

@@ -8,7 +8,14 @@
 
 import UIKit
 import MessageUI
+
+protocol SettingViewControllerDelegate {
+    func updateImageQuality()
+}
+
 class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
+    
+    var delegate: SettingViewControllerDelegate?
     
     @IBOutlet weak var aboutDisplay: UILabel!
     
@@ -17,6 +24,8 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var securityDisplay: UILabel!
     
     @IBOutlet weak var bestImageDisplay: UILabel!
+    
+    @IBOutlet weak var bestImageQuality: UISwitch!
     
     @IBOutlet weak var APICnt: UILabel!
     
@@ -28,6 +37,7 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var dragSliderDisplay: UILabel!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +48,8 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsTVC.preferredFontChange) , name: UIContentSizeCategoryDidChangeNotification, object: nil)
         
         touchId.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
+        bestImageQuality.on = NSUserDefaults.standardUserDefaults().boolForKey("ImageQuality")
+
         
         if(NSUserDefaults.standardUserDefaults().objectForKey("APICNT") != nil) {
             let theValue = NSUserDefaults.standardUserDefaults().objectForKey("APICNT") as! Int
@@ -67,6 +79,17 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         }
     }
     
+    
+    @IBAction func imageQuality(sender: UISwitch) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if bestImageQuality.on {
+            defaults.setBool(bestImageQuality.on, forKey: "ImageQuality")
+         }
+        else {
+            defaults.setBool(false, forKey: "ImageQuality")
+        }
+        delegate?.updateImageQuality()
+    }
     
     func preferredFontChange() {
         aboutDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
